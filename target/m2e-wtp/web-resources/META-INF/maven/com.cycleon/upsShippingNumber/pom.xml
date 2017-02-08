@@ -1,0 +1,101 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.cycleon</groupId>
+	<artifactId>upsShippingNumber</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>UPS Shipping Number Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+	<properties>
+		<failOnMissingWebXml>false</failOnMissingWebXml>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<jdk.version>1.8</jdk.version>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<junit.version>4.11</junit.version>
+		<postgresql.version>9.4-1201-jdbc41</postgresql.version>
+		<spring.version>4.2.0.RELEASE</spring.version>
+		<hibernate.version>3.6.10.Final</hibernate.version>
+		<hibernate.jpa.version>1.0.0.Final</hibernate.jpa.version>
+		<hibernate.validator.version>5.2.1-FINAL</hibernate.validator.version>
+		<spring.data.version>1.8.0.RELEASE</spring.data.version>
+		<commons.lang.version>3.4</commons.lang.version>
+		<hsqldb.version>2.3.3</hsqldb.version>
+		<json.simple.version>1.1.1</json.simple.version>
+		<apache.bean.utils.version>1.8.3</apache.bean.utils.version>
+		<javax.validation.version>1.0.0.GA</javax.validation.version>
+		<aspectj.version>1.7.4</aspectj.version>
+		<facts.version>1.0.4-FINAL</facts.version>		
+		<jcloverslf4j.version>1.7.1</jcloverslf4j.version>
+        <logback.version>1.0.6</logback.version>
+        <org.codehaus.janino.version>2.5.16</org.codehaus.janino.version>
+        <org.slf4j.jul-to-slf4j.version>1.7.2</org.slf4j.jul-to-slf4j.version>
+        
+		<jersey.version>1.8</jersey.version>
+		<jersey.spring.version>1.19</jersey.spring.version>
+		<org.apache.maven.plugins.surefire>2.17</org.apache.maven.plugins.surefire>
+		<commons.dbcp2.version>2.1</commons.dbcp2.version>
+		<commons.pool.version>2.3</commons.pool.version>
+		<velocity.version>1.7</velocity.version>
+		<javax.mail.version>1.4</javax.mail.version>
+		<javaServlet.version>3.1.0</javaServlet.version>
+		
+		<cycleon.commons.version>0.0.1-SNAPSHOT</cycleon.commons.version>
+		<unicorn.persistence.dao.version>1.0.2-FINAL</unicorn.persistence.dao.version>
+		<cycleon.dtos.version>1.0.0-SNAPSHOT</cycleon.dtos.version>
+	</properties>
+	<dependencies>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.quartz-scheduler</groupId> -->
+<!-- 			<artifactId>quartz</artifactId> -->
+<!-- 			<version>2.2.1</version> -->
+<!-- 		</dependency> -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>${postgresql.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>${javaServlet.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>eu.cycleon.unicorn</groupId>
+			<artifactId>unicorn-persistence-dao</artifactId>
+			<version>${unicorn.persistence.dao.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+	 	<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<finalName>UPSShippingNumberRS</finalName>
+	</build>
+</project>

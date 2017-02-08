@@ -1,0 +1,4 @@
+com\cycleon\rest\service\TestService.class
+com\cycleon\rest\conf\SpringContextApplicationConfiguration.class
+com\cycleon\rest\conf\SpringRestServiceInitializer.class
+com\cycleon\rest\webService\RestServiceExample.class

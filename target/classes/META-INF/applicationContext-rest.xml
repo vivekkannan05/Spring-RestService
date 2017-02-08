@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd">
+
+ <context:property-placeholder location="file:///${UNICORN_COMMON_CONFIG}//unicorn.properties" ignore-unresolvable="true"/>
+        <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+    	<property name="jndiName"><value>java:comp/env/jdbc/unicorn</value></property>
+    	</bean>
+    	    <!-- JNDI DataSource for J2EE environments -->
+    <bean id="dataSource-3rdparty" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName"><value>java:comp/env/jdbc/unicorn-3rdparty</value></property>
+    </bean>
+  <!--   <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="${unicorn.jdbc.driverclassname}"/>
+        <property name="url" value="${unicorn.jdbc.url}"/>
+        <property name="username" value="${unicorn.jdbc.username}"/>
+        <property name="password" value="${unicorn.jdbc.password}"/>
+        <property name="maxTotal" value="${unicorn.jdbc.maxtotal}"/>
+        <property name="maxIdle" value="${unicorn.jdbc.maxidle}"/>
+        <property name="maxWaitMillis" value="${unicorn.jdbc.maxwaitmillis}"/>
+        <property name="defaultAutoCommit" value="${unicorn.jdbc.defaultautocommit}"/>
+        <property name="removeAbandonedOnBorrow" value="${unicorn.jdbc.removeabandonedonborrow}"/>
+        <property name="removeAbandonedOnMaintenance" value="${unicorn.jdbc.removeabandonedonmaintenance}"/>
+        <property name="removeAbandonedTimeout" value="${unicorn.jdbc.removeabandonedtimeout}"/>
+        <property name="logAbandoned" value="${unicorn.jdbc.logabandoned}"/>
+    </bean>
+   -->  <bean id="hibernateProperties"  class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		  <property name="properties">
+		   <props>
+		   		<prop key="hibernate.mapping.precedence">${unicorn.database.hibernate.mapping.precedence}</prop>
+                <prop key="hibernate.dialect">${unicorn.database.hibernate.dialect}</prop>
+                <prop key="hibernate.show_sql">${unicorn.database.show.sql}</prop>
+                <prop key="hibernate.format_sql">${unicorn.database.hibernate.format.sql}</prop>
+                <prop key="hibernate.use_sql_comments">${unicorn.database.hibernate.use.sql.comments}</prop>
+                <!-- Create/update the database tables automatically when the JVM starts up -->
+                <prop key="hibernate.hbm2ddl.auto">${unicorn.database.hibernate.hbm2ddl.auto}</prop>
+                <!-- Turn batching off for better error messages under PostgreSQL
+                <prop key="hibernate.jdbc.batch_size">0</prop> -->
+
+                <!-- query cache -->
+                <prop key="hibernate.cache.use_query_cache">${unicorn.database.hibernate.cache.use.query.cache}</prop>
+                <prop key="hibernate.cache.use_structured_entries">${unicorn.database.hibernate.use.structured.entries}</prop>
+
+                <!-- second level cache -->
+                <prop key="hibernate.cache.use_second_level_cache">${unicorn.database.hibernate.cache.use.second.level.cache}</prop>
+                <prop key="hibernate.cache.region.factory_class">
+                    ${unicorn.database.hibernate.cache.region.factory.class}
+                </prop>
+
+                <prop key="hibernate.connection.release_mode">${unicorn.database.hibernate.connection.release.mode}</prop>
+            </props>
+		  </property>
+		  </bean>
+</beans>
